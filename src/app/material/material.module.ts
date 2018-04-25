@@ -11,10 +11,21 @@ import { MatDividerModule } from '@angular/material/divider';
   imports: [
     CommonModule,
     MatToolbarModule,
+    MatButtonModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    MatIconModule,
+    MatDividerModule
   ],
-  exports:[MatToolbarModule, MatListModule, MatCardModule, MatIconModule, MatDividerModule],
+  exports:[
+    CommonModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatListModule,
+    MatCardModule,
+    MatIconModule,
+    MatDividerModule
+  ],
   declarations: []
 })
 export class MaterialModule { }
