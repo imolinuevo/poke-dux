@@ -4,6 +4,7 @@
     <img matListAvatar src="assets/img/{{ pokemonItem.id }}.png" alt="{{ pokemonItem.name | titlecase }}" height="96" width="96">
     <h4 mat-line>{{ pokemonItem.name | titlecase }}</h4>
     <i mat-line>Weight: {{ pokemonItem.weight }}</i>
+    <button mat-fab color="warn" (click)="deletePokemonFromList(pokemonItem.name)"><i class="material-icons">delete_forever</i></button>
     <mat-divider></mat-divider>
   </mat-list-item>
 </mat-list>

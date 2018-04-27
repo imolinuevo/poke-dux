@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BagPokemon } from '../bag-pokemon.model';
+import { BagPokemonService } from '../bag-pokemon.service';
 
 @Component({
   selector: 'app-bag-pokemon-list',
@@ -8,17 +9,20 @@ import { BagPokemon } from '../bag-pokemon.model';
 })
 export class BagPokemonListComponent implements OnInit {
 
-  bagPokemonList: Array<BagPokemon> = [
-    new BagPokemon('Sandalio', 7, 'squirtle'),
-    new BagPokemon('Anacleto', 7, 'squirtle'),
-    new BagPokemon('Teofilo', 7, 'squirtle'),
-    new BagPokemon('Prudencio', 7, 'squirtle'),
-    new BagPokemon('Amancio', 4, 'charmander')
-  ];
+  bagPokemonList: Array<BagPokemon>;
 
-  constructor() { }
+  constructor(private bagPokemonService: BagPokemonService) { }
 
-  ngOnInit() {
+  ngOnInit() { 
+    this.bagPokemonList = this.bagPokemonService.getBagPokemonList();
+  }
+
+  deleteBagPokemonFromList(name: string) {
+    this.bagPokemonList.forEach((item, index) => {
+      if (item.name === name) {
+        this.bagPokemonList.splice(index, 1);
+      }
+    });
   }
 
 }
