@@ -6,6 +6,7 @@ import { appRoutes } from './app-routing.module';
 import { MaterialModule } from './material/material.module';
 import { LayoutModule } from './layout/layout.module';
 import { PokedexModule } from './pokedex/pokedex.module';
+import { BagModule } from './bag/bag.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PokedexModule } from './pokedex/pokedex.module';
     RouterModule.forRoot(appRoutes),
     MaterialModule,
     LayoutModule,
-    PokedexModule
+    PokedexModule,
+    BagModule
   ],
   providers: [],
   bootstrap: [AppComponent]
