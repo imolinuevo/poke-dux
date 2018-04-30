@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout/layout.component';
-import { PokemonListComponent } from './pokedex/pokemon-list/pokemon-list.component';
+import { PokedexPokemonListComponent } from './pokedex/pokedex-pokemon-list/pokedex-pokemon-list.component';
 import { BagPokemonListComponent } from './bag/bag-pokemon-list/bag-pokemon-list.component';
 
 export const appRoutes: Routes = [
@@ -15,7 +15,7 @@ export const appRoutes: Routes = [
             },
             {
                 path: 'pokedex',
-                component: PokemonListComponent
+                component: PokedexPokemonListComponent
             },
             {
                 path: 'bag',
