@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { PokedexPokemon } from '../pokedex-pokemon.model';
-import { PokedexPokemonService } from '../pokedex-pokemon.service';
+import { Observable } from 'rxjs/observable';
+import * as actions from '../reducer/pokedex-pokemon.actions';
+import * as fromPokedexPokemon from '../reducer/pokedex-pokemon.reducer';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -9,20 +12,16 @@ import { PokedexPokemonService } from '../pokedex-pokemon.service';
 })
 export class PokedexPokemonListComponent implements OnInit {
 
-  pokemonList: Array<PokedexPokemon>;
+  pokemonList: Observable<any>;
 
-  constructor(private pokemonService: PokedexPokemonService) { }
+  constructor(private store: Store<fromPokedexPokemon.State>) { }
 
   ngOnInit() {
-    this.pokemonList = this.pokemonService.getPokemonList();
+    this.pokemonList = this.store.select(fromPokedexPokemon.selectAll);
   }
 
-  deletePokemonFromList(name: string) {
-    this.pokemonList.forEach((item, index) => {
-      if (item.name === name) {
-        this.pokemonList.splice(index, 1);
-      }
-    });
+  deletePokedexPokemonFromList(id) {
+    this.store.dispatch(new actions.Delete(id));
   }
 
 }

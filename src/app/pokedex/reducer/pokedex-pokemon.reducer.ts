@@ -25,7 +25,7 @@ const defaultPokdexPokemons = {
             'weight': 85
         },
         7: {
-            'id': 1,
+            'id': 7,
             'name': 'squirtle',
             'weight': 90
         }

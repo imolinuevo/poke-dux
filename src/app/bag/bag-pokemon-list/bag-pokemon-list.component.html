@@ -1,6 +1,6 @@
 <mat-list>
   <h3 mat-subheader>Pokedex</h3>
-  <mat-list-item *ngFor="let pokemonItem of bagPokemonList">
+  <mat-list-item *ngFor="let pokemonItem of bagPokemonList | async">
     <img matListAvatar src="assets/img/{{ pokemonItem.pokemonId }}.png" alt="{{ pokemonItem.name | titlecase }}" height="96" width="96">
     <h4 mat-line>{{ pokemonItem.name | titlecase }}</h4>
     <i mat-line>{{ pokemonItem.pokemonName }}</i>

@@ -9,8 +9,6 @@ import { MaterialModule } from './material/material.module';
 import { LayoutModule } from './layout/layout.module';
 import { PokedexModule } from './pokedex/pokedex.module';
 import { BagModule } from './bag/bag.module';
-import { PokedexPokemonService } from './pokedex/pokedex-pokemon.service';
-import { BagPokemonService } from './bag/bag-pokemon.service';
 import { reducers } from './app-reducers';
 
 @NgModule({
@@ -29,7 +27,6 @@ import { reducers } from './app-reducers';
     PokedexModule,
     BagModule
   ],
-  providers: [PokedexPokemonService, BagPokemonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

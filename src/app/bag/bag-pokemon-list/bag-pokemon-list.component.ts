@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { BagPokemon } from '../bag-pokemon.model';
-import { BagPokemonService } from '../bag-pokemon.service';
+import { Observable } from 'rxjs/observable';
+import * as actions from '../reducer/bag-pokemon.actions';
+import * as fromBagPokemon from '../reducer/bag-pokemon.reducer';
 
 @Component({
   selector: 'app-bag-pokemon-list',
@@ -9,20 +12,16 @@ import { BagPokemonService } from '../bag-pokemon.service';
 })
 export class BagPokemonListComponent implements OnInit {
 
-  bagPokemonList: Array<BagPokemon>;
+  bagPokemonList: Observable<any>;
 
-  constructor(private bagPokemonService: BagPokemonService) { }
+  constructor(private store: Store<fromBagPokemon.State>) { }
 
   ngOnInit() { 
-    this.bagPokemonList = this.bagPokemonService.getBagPokemonList();
+    this.bagPokemonList = this.store.select(fromBagPokemon.selectAll);
   }
 
-  deleteBagPokemonFromList(name: string) {
-    this.bagPokemonList.forEach((item, index) => {
-      if (item.name === name) {
-        this.bagPokemonList.splice(index, 1);
-      }
-    });
+  deleteBagPokemonFromList(name) {
+    this.store.dispatch(new actions.Delete(name));
   }
 
 }
