@@ -39,7 +39,7 @@ export function pokedexPokemonReducer(
     action: actions.PokedexPokemonActions
 ) {
     switch(action.type) {
-        case actions.DELETE:
+        case actions.POKEDEX_DELETE:
             return pokedexPokemonAdapter.removeOne(action.id, state);
         default:
              return state;

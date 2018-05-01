@@ -49,7 +49,7 @@ export function bagPokemonReducer(
     action: actions.BagPokemonActions
 ) {
     switch(action.type) {
-        case actions.DELETE:
+        case actions.BAG_DELETE:
             return bagPokemonAdapter.removeOne(action.id, state);
         default:
              return state;
