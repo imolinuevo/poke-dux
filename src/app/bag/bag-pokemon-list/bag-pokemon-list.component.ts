@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { BagPokemon } from '../bag-pokemon.model';
 import { Observable } from 'rxjs/observable';
-import * as actions from '../reducer/bag-pokemon.actions';
-import * as fromBagPokemon from '../reducer/bag-pokemon.reducer';
+import * as actions from '../store/bag-pokemon.actions';
+import * as fromBagPokemon from '../store/bag-pokemon.reducer';
 
 @Component({
   selector: 'app-bag-pokemon-list',
