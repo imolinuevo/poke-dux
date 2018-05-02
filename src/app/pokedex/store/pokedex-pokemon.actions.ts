@@ -5,7 +5,7 @@ export const POKEDEX_DELETE = "[PokedexPokemon] Delete";
 
 export class Delete implements Action {
     readonly type = POKEDEX_DELETE;
-    constructor(public id: string){}
+    constructor(public id: number){}
 };
 
 export type PokedexPokemonActions = Delete;
