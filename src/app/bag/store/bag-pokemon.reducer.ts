@@ -51,6 +51,9 @@ export function bagPokemonReducer(
     switch(action.type) {
         case actions.BAG_DELETE:
             return bagPokemonAdapter.removeOne(action.id, state);
+        case actions.BAG_DEPRECATE:
+            console.log(state.entities);
+            return bagPokemonAdapter.removeOne(action.id, state);
         default:
              return state;
     }
