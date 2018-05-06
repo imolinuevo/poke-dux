@@ -52,8 +52,17 @@ export function bagPokemonReducer(
         case actions.BAG_DELETE:
             return bagPokemonAdapter.removeOne(action.id, state);
         case actions.BAG_DEPRECATE:
-            console.log(state.entities);
-            return bagPokemonAdapter.removeOne(action.id, state);
+            var entities = Object.keys(state.entities).map(function(index){
+                let entity = state.entities[index];
+                return entity;
+            });
+            var ids: string[] = [];
+            entities.forEach(entity => {
+                if(entity.pokemonId === action.id) {
+                    ids.push(entity.name)
+                }
+            });
+            return bagPokemonAdapter.removeMany(ids, state);
         default:
              return state;
     }
