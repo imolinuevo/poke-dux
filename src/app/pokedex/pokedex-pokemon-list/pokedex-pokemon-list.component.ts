@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { PokedexPokemon } from '../pokedex-pokemon.model';
-import { Observable } from 'rxjs/observable';
+import { Observable } from 'rxjs/Observable';
 import * as actions from '../store/pokedex-pokemon.actions';
 import * as fromPokedexPokemon from '../store/pokedex-pokemon.reducer';
 

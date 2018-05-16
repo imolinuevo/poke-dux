@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { BagPokemon } from '../bag-pokemon.model';
-import { Observable } from 'rxjs/observable';
+import { Observable } from 'rxjs/Observable';
 import * as actions from '../store/bag-pokemon.actions';
 import * as fromBagPokemon from '../store/bag-pokemon.reducer';
 
