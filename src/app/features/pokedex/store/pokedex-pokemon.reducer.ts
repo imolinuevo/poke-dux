@@ -1,12 +1,8 @@
-import * as actions from './pokedex-pokemon.actions';
 import { EntityState, createEntityAdapter } from '@ngrx/entity';
 import { createFeatureSelector } from '@ngrx/store';
 
-export interface PokedexPokemon {
-    id: number;
-    name: string;
-    weight: number;
-}
+import { PokedexPokemon } from '../pokedex-pokemon.model';
+import * as actions from './pokedex-pokemon.actions';
 
 export const pokedexPokemonAdapter = createEntityAdapter<PokedexPokemon>();
 export interface State extends EntityState<PokedexPokemon> {};

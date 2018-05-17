@@ -1,5 +1,6 @@
 import { Action } from '@ngrx/store';
-import { PokedexPokemon } from './pokedex-pokemon.reducer';
+
+import { PokedexPokemon } from '../pokedex-pokemon.model';
 
 export const POKEDEX_DELETE = "[PokedexPokemon] Delete";
 

@@ -1,5 +1,6 @@
 import { Action } from '@ngrx/store';
-import { BagPokemon } from './bag-pokemon.reducer';
+
+import { BagPokemon } from '../bag-pokemon.model';
 
 export const BAG_DELETE = "[BagPokemon] Delete";
 export const BAG_DEPRECATE = "[BagPokemon] Deprecate";

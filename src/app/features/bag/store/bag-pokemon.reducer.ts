@@ -1,15 +1,11 @@
-import * as actions from './bag-pokemon.actions';
 import { EntityState, createEntityAdapter } from '@ngrx/entity';
 import { createFeatureSelector } from '@ngrx/store';
 
-export interface BagPokemon {
-    name: string;
-    pokemonId: number;
-    pokemonName: string;
-};
+import { BagPokemon } from '../bag-pokemon.model';
+import * as actions from './bag-pokemon.actions';
 
 export const bagPokemonAdapter = createEntityAdapter<BagPokemon>();
-export interface State extends EntityState<BagPokemon> {};
+export interface State extends EntityState<BagPokemon> { };
 
 const defaultBagPokemons = {
     ids: ['sandalio', 'anacleto', 'teofilo', 'prudencio', 'amancio'],
@@ -48,25 +44,30 @@ export function bagPokemonReducer(
     state: State = initialState,
     action: actions.BagPokemonActions
 ) {
-    switch(action.type) {
+    switch (action.type) {
         case actions.BAG_DELETE:
             return bagPokemonAdapter.removeOne(action.id, state);
         case actions.BAG_DEPRECATE:
-            var entities = Object.keys(state.entities).map(function(index){
-                let entity = state.entities[index];
-                return entity;
-            });
-            var ids: string[] = [];
-            entities.forEach(entity => {
-                if(entity.pokemonId === action.id) {
-                    ids.push(entity.name)
-                }
-            });
-            return bagPokemonAdapter.removeMany(ids, state);
+
+            return bagPokemonAdapter.removeMany(getBagPokemonsByPokemonId(state, action), state);
         default:
-             return state;
+            return state;
     }
 };
+
+function getBagPokemonsByPokemonId(state, action) {
+    var entities = Object.keys(state.entities).map(function (index) {
+        let entity = state.entities[index];
+        return entity;
+    });
+    var ids: string[] = [];
+    entities.forEach(entity => {
+        if (entity.pokemonId === action.id) {
+            ids.push(entity.name)
+        }
+    });
+    return ids;
+}
 
 export const getBagPokemonState = createFeatureSelector<State>('bagPokemon');
 
