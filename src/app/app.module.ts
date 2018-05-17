@@ -8,8 +8,6 @@ import { AppComponent } from './app.component';
 import { appRoutes } from './app-routing.module';
 import { MaterialModule } from './material/material.module';
 import { LayoutModule } from './layout/layout.module';
-import { PokedexModule } from './pokedex/pokedex.module';
-import { BagModule } from './bag/bag.module';
 import { reducers } from './app-reducers';
 import { AppEffects } from './app.effect';
 
@@ -26,9 +24,7 @@ import { AppEffects } from './app.effect';
       maxAge: 25
     }),
     MaterialModule,
-    LayoutModule,
-    PokedexModule,
-    BagModule
+    LayoutModule
   ],
   bootstrap: [AppComponent]
 })

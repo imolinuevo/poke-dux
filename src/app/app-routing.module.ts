@@ -1,7 +1,5 @@
 import { Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout/layout.component';
-import { PokedexPokemonListComponent } from './pokedex/pokedex-pokemon-list/pokedex-pokemon-list.component';
-import { BagPokemonListComponent } from './bag/bag-pokemon-list/bag-pokemon-list.component';
 
 export const appRoutes: Routes = [
     {
@@ -15,11 +13,11 @@ export const appRoutes: Routes = [
             },
             {
                 path: 'pokedex',
-                component: PokedexPokemonListComponent
+                loadChildren: './pokedex/pokedex.module#PokedexModule'
             },
             {
                 path: 'bag',
-                component: BagPokemonListComponent
+                loadChildren: './bag/bag.module#BagModule'
             },
             {
                 path: '**',
