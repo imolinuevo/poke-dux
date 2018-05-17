@@ -49,13 +49,13 @@ export function bagPokemonReducer(
             return bagPokemonAdapter.removeOne(action.id, state);
         case actions.BAG_DEPRECATE:
 
-            return bagPokemonAdapter.removeMany(getBagPokemonsByPokemonId(state, action), state);
+            return bagPokemonAdapter.removeMany(getBagPokemonIdsByPokemonId(state, action), state);
         default:
             return state;
     }
 };
 
-function getBagPokemonsByPokemonId(state, action) {
+function getBagPokemonIdsByPokemonId(state, action) {
     var entities = Object.keys(state.entities).map(function (index) {
         let entity = state.entities[index];
         return entity;
