@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutComponent } from './layout/layout.component';
-import { MaterialModule } from '../material/material.module';
+import { MaterialModule } from '../../shared/material/material.module';
 import { RouterModule, Routes } from '@angular/router';
 
 @NgModule({
